@@ -82,7 +82,7 @@ class Slider
     textSize(40);
     text(min, x, y+150);
     text(max, x+w, y+150);
-    text((int)current, x+(w/2), y+150);
+    text(current, x+(w/2), y+150);
   }
 
   boolean selectSlider()

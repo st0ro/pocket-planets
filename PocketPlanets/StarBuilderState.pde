@@ -11,6 +11,7 @@ class StarBuilderState extends State
     userStar.renderStar(width*0.3, height*.5, height*.6);
     fill(#3F3F3F);
     rect(width*.6, 0, width*.4, height);
+    sizeSlider.displaySlider();
   }
 }
 
