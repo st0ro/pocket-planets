@@ -1,16 +1,12 @@
 State[] states = new State[4];
 
 
-
-
 int currentState = 1;
 
 Star userStar;
 
-
 void setup()
 {
-  
   frameRate(60);
   orientation(LANDSCAPE);
   textAlign(CENTER, CENTER);
@@ -27,18 +23,11 @@ void draw()
   background(0);
   starDraw();
   states[currentState].update();
-  
 }
 
 class State
 {
-
   void update(){
-    
-    
-    
-
-  
 }
 
 class Button
@@ -134,7 +123,6 @@ class Slider
     min = d;
     max = e;
     colour = f;
-
   }
 }
 }
