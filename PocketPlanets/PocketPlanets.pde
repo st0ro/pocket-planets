@@ -12,20 +12,12 @@ void setup()
   states[3] = new StarBuilderState();
 }
 
-Slider testy = new Slider (600, 800, 1000, 1000, 2000);
-
 void draw()
 {
   background(0); 
-  Button test = new Button ("test", 500, 500, 200, 100);
-  test.displayButton();
-  if (test.ButtonPressed())
-  {
-    background(0);
-  }
+  
+  
   states[currentState].update();
-
-  testy.displaySlider();
 }
 
 class State
@@ -38,13 +30,15 @@ class Button
 {
   String label;
   int x, y, h, w;
+  int colour;
 
   void displayButton()
   {
-    fill(0);
-    text(label, x + (w/2), y + (h/2));
-    fill(255);
+    fill(colour);
     rect(x, y, w, h);
+    fill(0);
+    textSize(h*0.75);
+    text(label, x + (w/2), y + (h/2));
   }
 
   boolean ButtonPressed()
@@ -57,37 +51,43 @@ class Button
     return false;
   }
 
-  Button(String l, int a, int b, int c, int d)
+  Button(String l, int a, int b, int c, int d, int e)
   {
     label = l;
     x=a;
     y=b;
     w=c;
     h=d;
+    colour = e;
   }
 }
 
 class Slider
 {
-  int x, y, w, min, max, current;
+  int x, y, w, min, max; 
+  float current;
   int sx;
+  int colour;
 
   void displaySlider()
   {
-    fill(255);
+    fill(colour);
     moveSlider();
-    rect(x, y, w, 20);
+    current = ((sx-x)/(float)w)*(max - min) + min;
+    rect(x, y+40, w, 20);
     rect(sx, y, 40, 100);
-    text(min, x, y+20);
-    text(max, x+w, y+20);
-    text(current, x+(w/2), y+20);
+    fill(colour); 
+    textSize(40);
+    text(min, x, y+150);
+    text(max, x+w, y+150);
+    text((int)current, x+(w/2), y+150);
   }
 
   boolean selectSlider()
   {
     for (int i = 0; i <touches.length; i++)
     {
-      if (touches[i].x > sx-100 && touches[i].x < sx + 120 && touches[i].y > y - 100 && touches[i].y < y + 150)
+      if (touches[i].x > x - 50 && touches[i].x < x + w + 50 && touches[i].y > y - 100 && touches[i].y < y + 120)
         return true;
     }
     return false;
@@ -97,27 +97,27 @@ class Slider
   {
     if (selectSlider())
     {
-      fill(128);
+      fill(255);
       for (int i = 0; i < touches.length; i++)
       {
         if (touches[i].x > x && touches[i].x < (x + w))
-        {
-          if (sx<=touches[i].x)
-            sx=(int)touches[i].x - 10 ;
-          else if (sx > touches[i].x)
-            sx=(int)touches[i].x + 10;
-        }
+          sx=(int)touches[i].x;
+        else if (touches[i].x > x - 50 && touches [i].x < x)
+          sx = x;
+        else if (touches[i].x < x + w + 50 && touches[i].x > x + w)
+          sx = x+w;
       }
     }
   }
 
-  Slider(int a, int b, int c, int d, int e)
+  Slider(int a, int b, int c, int d, int e, int f)
   {
     x = a;
-    sx = a + 20;
+    sx = a;
     y = b;
     w = c;
     min = d;
     max = e;
+    colour = f;
   }
 }
