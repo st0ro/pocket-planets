@@ -9,10 +9,12 @@ void setup()
   states[1] = new PlanetBuilderState();
   states[2] = new SolarViewState();
   states[3] = new StarBuilderState();
+  starInit();
 }
 void draw()
 {
-  background(255);
+  background(0);
+  starDraw();
   states[currentState].update();
 }
 
