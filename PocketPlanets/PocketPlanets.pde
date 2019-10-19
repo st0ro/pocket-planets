@@ -13,7 +13,7 @@ void setup()
 }
 void draw()
 {
-  background(255);
+  background(0);
   if(currentState == 0 || currentState == 2) starDraw();
   states[currentState].update();
 }
