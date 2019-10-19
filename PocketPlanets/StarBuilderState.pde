@@ -1,14 +1,17 @@
 class StarBuilderState extends State
 {
+  Slider sizeSlider;
   StarBuilderState()
   {
-    userStar = new StarYellowDwarf();
+    userStar = new StarBlueGiant();
+    sizeSlider = new Slider(width*0.64, height*0.2, width*.32, 0.96, 1.4, #BFBFBF);
   }
   void update()
   {
     userStar.renderStar(width*0.3, height*.5, height*.6);
     fill(#3F3F3F);
     rect(width*.6, 0, width*.4, height);
+    sizeSlider.displaySlider();
   }
 }
 
@@ -17,7 +20,9 @@ class Star
   double tempMin, tempMax, radMin, radMax, massMin, massMax, prev, radUser, massUser, radView;
   String lifeMin, lifeMax, starName, userName;
   int starColor, star2ndColor, star3rdColor;
-  Star(String in) {starName = in;}
+  Star(String in) {
+    starName = in;
+  }
   void renderStar(float x, float y, float diam)
   {
     noStroke();
@@ -62,9 +67,9 @@ class StarRedDwarf extends Star
     massMin = 0.08;
     massMax = 0.45;
     prev = .73;
-    starColor = #FF5E00;
-    star2ndColor = #F59E2C;
-    star3rdColor = #FAB253;
+    starColor = #FF3300;
+    star2ndColor = #FF6F00;
+    star3rdColor = #FF9E00;
   }
 }
 class StarBlueGiant extends Star
@@ -81,8 +86,8 @@ class StarBlueGiant extends Star
     massMin = 1.4;
     massMax = 265;
     prev = .007;
-    starColor = #FF5E00;
-    star2ndColor = #F59E2C;
-    star3rdColor = #FAB253;
+    starColor = #00B0FF;
+    star2ndColor = #90F7FF;
+    star3rdColor = #E3FDFF;
   }
 }

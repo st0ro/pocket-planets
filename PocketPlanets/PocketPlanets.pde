@@ -1,4 +1,5 @@
 State[] states = new State[4];
+
 int currentState = 3;
 Star userStar;
 String textinput = "";
@@ -33,8 +34,7 @@ void keyPressed()
 
 class State
 {
-  void update() {
-  }
+  void update() {}
 }
 
 class Button
@@ -75,9 +75,9 @@ class Button
 
 class Slider
 {
-  int x, y, w, min, max; 
+  float x, y, w, min, max; 
   float current;
-  int sx;
+  float sx;
   int colour;
 
   void displaySlider()
@@ -91,7 +91,7 @@ class Slider
     textSize(40);
     text(min, x, y+150);
     text(max, x+w, y+150);
-    text((int)current, x+(w/2), y+150);
+    text(current, x+(w/2), y+150);
   }
 
   boolean selectSlider()
@@ -121,7 +121,7 @@ class Slider
     }
   }
 
-  Slider(int a, int b, int c, int d, int e, int f)
+  Slider(float a, float b, float c, float d, float e, int f)
   {
     x = a;
     sx = a;
