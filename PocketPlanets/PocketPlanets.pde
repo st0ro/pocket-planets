@@ -1,4 +1,5 @@
 State[] states = new State[4];
+
 int currentState = 3;
 
 Star userStar;
