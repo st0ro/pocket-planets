@@ -3,6 +3,7 @@ class StarBuilderState extends State
   StarBuilderState()
   {
     userStar = new StarBlueGiant();
+    //sizeSlider = new Slider(width*0.64, height*0.2, width*.32, );
   }
   void update()
   {
