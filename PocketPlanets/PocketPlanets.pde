@@ -1,5 +1,5 @@
 State[] states = new State[4];
-int currentState = 0;
+int currentState = 2;
 
 void setup()
 {
