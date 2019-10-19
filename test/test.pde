@@ -1,7 +1,7 @@
 PFont f;
 void setup(){
-  size(400,200);
-  f = createFont("Arial",16,true);
+  size(500,400);
+  f = createFont("Arial",20,true);
 }
 
 
@@ -9,7 +9,7 @@ void draw(){
   
   background(255);
 
-   stroke(400);
+  stroke(400);
 
 
   textFont(f);       
