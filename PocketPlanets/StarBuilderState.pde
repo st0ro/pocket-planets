@@ -2,7 +2,7 @@ class StarBuilderState extends State
 {
   StarBuilderState()
   {
-    userStar = new StarYellowDwarf();
+    userStar = new StarBlueGiant();
   }
   void update()
   {
@@ -62,9 +62,9 @@ class StarRedDwarf extends Star
     massMin = 0.08;
     massMax = 0.45;
     prev = .73;
-    starColor = #FF5E00;
-    star2ndColor = #F59E2C;
-    star3rdColor = #FAB253;
+    starColor = #FF3300;
+    star2ndColor = #FF6F00;
+    star3rdColor = #FF9E00;
   }
 }
 class StarBlueGiant extends Star
@@ -81,8 +81,8 @@ class StarBlueGiant extends Star
     massMin = 1.4;
     massMax = 265;
     prev = .007;
-    starColor = #FF5E00;
-    star2ndColor = #F59E2C;
-    star3rdColor = #FAB253;
+    starColor = #00B0FF;
+    star2ndColor = #90F7FF;
+    star3rdColor = #E3FDFF;
   }
 }
