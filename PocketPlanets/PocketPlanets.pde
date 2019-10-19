@@ -1,7 +1,7 @@
 State[] states = new State[4];
 int currentState = 3;
-
 Star userStar;
+String textinput = "";
 
 void setup()
 {
@@ -14,12 +14,21 @@ void setup()
   states[3] = new StarBuilderState();
   starInit();
 }
-
+Textbox test = new Textbox(500, 200, 300, 100);
 void draw()
 {
   background(0);
   starDraw();
   states[currentState].update();
+  test.displayTextbox();
+}
+
+void keyPressed()
+{
+  if ((key>= 'a' && key<='z')||(key>='A' && key<='Z')||(key=='-')||(key>='0' && key <= '9'))
+    textinput = textinput + key;
+  else if (key==65535 && textinput.length() > 0)
+    textinput = textinput.substring(0, textinput.length() - 1);
 }
 
 class State
@@ -121,5 +130,38 @@ class Slider
     min = d;
     max = e;
     colour = f;
+  }
+}
+
+class Textbox
+{
+  int x, y, w, h;
+  void type()
+  {
+    for (int i = 0; i <touches.length; i++)
+    {
+      if (touches[i].x > x-20 && touches[i].x < x + w + 20 && touches[i].y > y - 20 && touches[i].y < y + h + 20)
+        openKeyboard();
+    }
+  }
+
+  void displayTextbox()
+  {
+    type();
+    fill(255);
+    rect(x, y, w, h);
+    fill(0);
+    textAlign(LEFT, CENTER);
+    textSize(h*0.75);
+    text(textinput, x + 10, y + h/2);
+    textAlign(CENTER, CENTER);
+  }
+
+  Textbox(int a, int b, int c, int d)
+  {
+    x = a;
+    y = b;
+    w = c;
+    h = d;
   }
 }
