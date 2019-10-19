@@ -1,6 +1,6 @@
 State[] states = new State[4];
 
-int currentState = 3;
+int currentState = 2;
 
 Star userStar;
 
