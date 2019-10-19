@@ -13,7 +13,7 @@ class Dwarf extends Planet {
   radius = random(300*pow(10,3),2000*pow(10,3)); // radius is  m
   name = "Barack Obama";
   dist_from_sun = counter* 500*pow(10,3);
-  orbit_speed = sqrt(radius/(G*msun));
+  //orbit_speed = sqrt(radius/(G*msun));
   
   }
 }

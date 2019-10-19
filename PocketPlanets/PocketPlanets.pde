@@ -1,8 +1,9 @@
 State[] states = new State[4];
-int currentState = 0;
+int currentState = 1;
 
 void setup()
 {
+  
   frameRate(60);
   orientation(LANDSCAPE);
   states[0] = new MainMenuState();
@@ -14,11 +15,15 @@ void setup()
 void draw()
 {
   background(0);
-  if(currentState == 0 || currentState == 2) starDraw();
+  starDraw();
   states[currentState].update();
 }
 
 class State
 {
-  void update(){}
+  void update(){
+    
+    
+    
+  }
 }
