@@ -1,9 +1,10 @@
 class StarBuilderState extends State
 {
+  Slider sizeSlider;
   StarBuilderState()
   {
     userStar = new StarBlueGiant();
-    //sizeSlider = new Slider(width*0.64, height*0.2, width*.32, );
+    sizeSlider = new Slider(width*0.64, height*0.2, width*.32, 0.96, 1.4, #BFBFBF);
   }
   void update()
   {
@@ -18,7 +19,9 @@ class Star
   double tempMin, tempMax, radMin, radMax, massMin, massMax, prev, radUser, massUser, radView;
   String lifeMin, lifeMax, starName, userName;
   int starColor, star2ndColor, star3rdColor;
-  Star(String in) {starName = in;}
+  Star(String in) {
+    starName = in;
+  }
   void renderStar(float x, float y, float diam)
   {
     noStroke();
