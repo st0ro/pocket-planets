@@ -3,4 +3,4 @@ from team Winnable
 
 
 References Used:
-https://www.worldatlas.com/articles/how-many-types-of-planets-are-there-on-the-basis-of-composition.html types of planet
+https://www.space.com/36935-planet-classification.html types of planet
