@@ -5,6 +5,7 @@ int currentState = 3;
 Star userStar;
 Planet[] planets = new Planet[3];
 String textinput = "";
+PFont font;
 
 void setup()
 {
@@ -16,6 +17,7 @@ void setup()
   states[2] = new SolarViewState();
   states[3] = new StarBuilderState();
   starInit();
+  font = loadFont("OCRAExtended-48.vlw");
 }
 Textbox test = new Textbox(500, 200, 300, 100);
 void draw()
