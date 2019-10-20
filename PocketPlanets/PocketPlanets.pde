@@ -1,7 +1,6 @@
 State[] states = new State[4];
-
 boolean keyboard = false;
-int currentState = 3;
+int currentState = 1;
 Star userStar;
 Planet[] planets = new Planet[3];
 String textinput = "";
@@ -19,6 +18,7 @@ void setup()
   starInit();
   font = loadFont("OCRAExtended-48.vlw");
 }
+
 void draw()
 {
   background(0);
@@ -34,6 +34,11 @@ void keyPressed()
     textinput = textinput.substring(0, textinput.length() - 1);
 }
 
+void backPressed()
+{
+  keyboard = false;
+}
+
 class State
 {
   void update() {}
@@ -42,7 +47,7 @@ class State
 class Button
 {
   String label;
-  int x, y, h, w;
+  float x, y, h, w;
   int colour, trans;
 
   void displayButton()
@@ -64,7 +69,7 @@ class Button
     return false;
   }
 
-  Button(String l, int a, int b, int c, int d, int e, int f)
+  Button(String l, float a, float b, float c, float d, int e, int f)
   {
     label = l;
     x=a;
@@ -144,8 +149,11 @@ class Textbox
     for (int i = 0; i <touches.length; i++)
     {
       if (touches[i].x > x-20 && touches[i].x < x + w + 20 && touches[i].y > y - 20 && touches[i].y < y + h + 20 && !keyboard)
+        {
         openKeyboard();
-    }
+        keyboard = true;
+        }  
+  }
   }
 
   void displayTextbox()
