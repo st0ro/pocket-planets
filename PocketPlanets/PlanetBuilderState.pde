@@ -17,7 +17,7 @@ class PlanetBuilderState extends State
   Button DwarfButton = new Button("", 0.925*width,height*0.2,height*0.15,height*0.15, 255, 0); 
   Button TerrestrialButton = new Button("", 0.925*width,height*0.355,height*0.15,height*0.15, 255, 0); 
   Button GiantButton = new Button("", 0.925*width,height*0.55,height*0.15,height*0.15, 255, 0);
-  Button CreateButton = new Button("Create", 0.75*width, 0.9*height, width*0.2, height*0.12, #BFBFBF, 255);
+  Button CreateButton = new Button("Create", 0.65*width, 0.87*height, width*0.2, height*0.08, #BFBFBF, 255);
   Textbox DwarfName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
   Textbox TerrestrialName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
   Textbox GiantName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
@@ -33,7 +33,7 @@ class PlanetBuilderState extends State
    noStroke();
    fill(#BFBFBF, 170);
    rect(0.4*width, 0, 0.60*width, height, 5); //Backdrop right 
-   rect(0.05*width, 0.65*height, 0.3*width, height*0.35, 5); //Backdrop left
+   rect(0.05*width, 0.8*height, 0.3*width, height*0.2, 5); //Backdrop left
    
    
    fill(#000000);
@@ -44,13 +44,13 @@ class PlanetBuilderState extends State
    switch(choice)
    {
      case 'D':
-     temp.renderPlanet(0.2*width, 0.32*height, 0.01*width*log(radiusSliderDwarf.current));
+     temp.renderPlanet(0.2*width, 0.45*height, 0.01*width*log(radiusSliderDwarf.current));
      break;
      case 'T':
-     temp.renderPlanet(0.2*width, 0.32*height, 0.01*width*log(radiusSliderTerrestrial.current));
+     temp.renderPlanet(0.2*width, 0.45*height, 0.01*width*log(radiusSliderTerrestrial.current));
      break;
      case 'G':
-     temp.renderPlanet(0.2*width, 0.32*height, 0.06*width*log(radiusSliderGiant.current/1000));
+     temp.renderPlanet(0.2*width, 0.45*height, 0.06*width*log(radiusSliderGiant.current/1000));
      break;
    }
    rectMode(CENTER);
@@ -103,17 +103,16 @@ class PlanetBuilderState extends State
    text("Mass", 0.4525*width, 0.5*height);
    text("Radius", 0.4525*width, 0.7*height);
    text("Cost", 0.4525*width, 0.9*height);
-   text("Create", 0.75*width, 0.9*height);
    
    if (choice == 'D'){
    DwarfName.displayTextbox();
    DwarfName.type();
    massSliderDwarf.displaySlider();
    radiusSliderDwarf.displaySlider();
-   text("Name", 0.1*width, 0.70*height);
-   text("Mass: " + massSliderDwarf.current, 0.1*width, 0.75*height);
-   text("Radius: " + radiusSliderDwarf.current, 0.1*width, 0.80*height);
-   text("Orbit time: ",0.1*width,0.85*height);
+   text("Name", 0.2*width, 0.82*height);
+   text("Mass: " + massSliderDwarf.current, 0.2*width, 0.87*height);
+   text("Radius: " + radiusSliderDwarf.current, 0.2*width, 0.92*height);
+   text("Orbit time: ",0.2*width,0.97*height);
    }
    
    if (choice == 'T'){
@@ -121,20 +120,20 @@ class PlanetBuilderState extends State
    TerrestrialName.type();  
    massSliderTerrestrial.displaySlider();
    radiusSliderTerrestrial.displaySlider();
-   text("Name", 0.1*width, 0.70*height);
-   text("Mass: " + massSliderTerrestrial.current, 0.1*width, 0.75*height);
-   text("Radius: " + radiusSliderTerrestrial.current, 0.1*width, 0.80*height);
-   text("Orbit time: ",0.1*width,0.85*height);
+   text("Name", 0.2*width, 0.82*height);
+   text("Mass: " + massSliderTerrestrial.current, 0.2*width, 0.87*height);
+   text("Radius: " + radiusSliderTerrestrial.current, 0.2*width, 0.92*height);
+   text("Orbit time: ",0.2*width,0.97*height);
    }
    if (choice == 'G'){
    GiantName.displayTextbox();
    GiantName.type();  
    massSliderGiant.displaySlider();
    radiusSliderGiant.displaySlider();
-   text("Name", 0.1*width, 0.70*height);
-   text("Mass: " + massSliderGiant.current, 0.1*width, 0.75*height);
-   text("Radius: " + radiusSliderGiant.current, 0.1*width, 0.80*height);
-   text("Orbit time: ",0.1*width,0.85*height);
+   text("Name", 0.2*width, 0.82*height);
+   text("Mass: " + massSliderGiant.current, 0.2*width, 0.87*height);
+   text("Radius: " + radiusSliderGiant.current, 0.2*width, 0.92*height);
+   text("Orbit time: ",0.2*width,0.97*height);
    }
   }
 }
