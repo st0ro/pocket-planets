@@ -1,16 +1,19 @@
 class SolarViewState extends State
 {
   PImage img1, img2, img3;
+  int money;
   SolarViewState()
   {
     img1 =loadImage("solar.png");
     img2 =loadImage("galaxy.jpg");
     img3 =loadImage("universe.jpg");
+    money = 100000;
   }
   void update()
   { 
     if (currentState ==2) {
       fill(#7F7F7F);
+      textAlign(CENTER, CENTER);
       rect(width*0.9, height*4/5, width*0.1, width*0.1, 10); //build icon
       fill(0);
       textSize(80);
@@ -30,17 +33,13 @@ class SolarViewState extends State
       rect (width * 0.75, height*0.078, width *0.05, width *0.05, 10);
       rect (width * 0.82, height*0.078, width *0.05, width *0.05, 10);
       rect (width * 0.89, height*0.078, width *0.05, width *0.05, 10);
-      fill(0);
-      textSize(70);
-      text("S", width*0.76, height*0.15);
+      fill(255);
       image(img1, width * 0.75, height*0.078, width *0.05, width *0.05);
-      text("G", width*0.83, height*0.15);
       image(img2, width * 0.82, height*0.078, width *0.05, width *0.05);
-
-      text("U", width*0.90, height*0.15);
       image(img3, width * 0.89, height*0.078, width *0.05, width *0.05);
-      textSize(150);
-      text("420 SDs", width*0.1, height*0.1);
+      textSize(80);
+      textAlign(LEFT, CENTER);
+      text(money + " SDs", width*0.02, height*0.1);
 
       for (int i = 0; i < planets.length; i++)
       {
