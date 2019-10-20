@@ -1,17 +1,50 @@
 class StarBuilderState extends State
 {
   Slider sizeSlider;
+  Button yellowButton, redButton, blueButton;
+  Star tempYellow, tempRed, tempBlue;
   StarBuilderState()
   {
     userStar = new StarYellowDwarf();
-    sizeSlider = new Slider(width*0.64, height*0.2, width*.32, 0.96, 1.4, #BFBFBF);
+    sizeSlider = new Slider(width*0.64, height*0.3, width*.32, (float)userStar.radMin, (float)userStar.radMax, #BFBFBF);
+    yellowButton = new Button("", (int)(width*.63), (int)(height*0.03), (int)(width*.1), (int)(width*0.1), #7F7F7F);
+    redButton = new Button("", (int)(width*.75), (int)(height*0.03), (int)(width*.1), (int)(width*0.1), #7F7F7F);
+    blueButton = new Button("", (int)(width*.87), (int)(height*0.03), (int)(width*.1), (int)(width*0.1), #7F7F7F);
+    tempYellow = new StarYellowDwarf();
+    tempRed = new StarRedDwarf();
+    tempBlue = new StarBlueGiant();
   }
   void update()
   {
-    userStar.renderStar(width*0.3, height*.5, height*.6);
+    userStar.renderStar(width*0.3, height*.5, height*.09*log(sizeSlider.current*100));
     fill(#3F3F3F);
     rect(width*.6, 0, width*.4, height);
     sizeSlider.displaySlider();
+    yellowButton.displayButton();
+    tempYellow.renderStar(width*0.68, height*0.13, width*0.08);
+    redButton.displayButton();
+    tempRed.renderStar(width*0.80, height*0.13, width*0.08);
+    blueButton.displayButton();
+    tempBlue.renderStar(width*0.92, height*0.13, width*0.08);
+    
+    if(yellowButton.ButtonPressed())
+    {
+      userStar = new StarYellowDwarf();
+      sizeSlider.min = (float)userStar.radMin;
+      sizeSlider.max = (float)userStar.radMax;
+    }
+    if(redButton.ButtonPressed())
+    {
+      userStar = new StarRedDwarf();
+      sizeSlider.min = (float)userStar.radMin;
+      sizeSlider.max = (float)userStar.radMax;
+    }
+    if(blueButton.ButtonPressed())
+    {
+      userStar = new StarBlueGiant();
+      sizeSlider.min = (float)userStar.radMin;
+      sizeSlider.max = (float)userStar.radMax;
+    }
   }
 }
 
@@ -26,11 +59,11 @@ class Star
   void renderStar(float x, float y, float diam)
   {
     noStroke();
-    fill(userStar.starColor);
+    fill(starColor);
     ellipse(x, y, diam, diam);
-    fill(userStar.star2ndColor);
+    fill(star2ndColor);
     ellipse(x, y, diam*.8, diam*.8);
-    fill(userStar.star3rdColor);
+    fill(star3rdColor);
     ellipse(x, y, diam*.6, diam*.6);
   }
 }

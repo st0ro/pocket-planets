@@ -7,7 +7,7 @@ class MainMenuState extends State
   }
  
   void update(){
-    textFont(font);
+  textFont(font);
     fill(255);
    
     textSize(100);

@@ -12,25 +12,30 @@ class PlanetBuilderState extends State
   Slider massSliderGiant = new Slider(width*0.55, height*0.45,width*0.3,100,2000, 255); //units 10^24
   Slider radiusSliderGiant = new Slider(width*0.55, height*0.65,width*0.3,40000,150000, 255);
   
-  
+  Textbox dwarfName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
+  Textbox TerrestrialName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
+  Textbox GiantName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
   
   PlanetBuilderState()
   {
     planets[0] = new Dwarf();
+    planets[1] = new Dwarf();
+    planets[2] = new Dwarf();
   }
   
   void update()
   {
+   textFont(font);
    noStroke();
-   fill(#7F7F7F, 170);
+   fill(#BFBFBF, 170);
    rect(0.4*width, 0, 0.60*width, height, 5); //Backdrop right 
+   rect(0.05*width, 0.65*height, 0.3*width, height*0.35, 5); //Backdrop left
    
-   //rect(0.05*width, 0.55*height, 0.4*width, height*0.40, 5); //Backdrop left
+   
    fill(#000000);
    rect(0.925*width, 0,height*0.2, height); //Selection Bar
+   
    fill(255);
-   
-   
    rect(0.9355*width, 0+0.025*height, height*0.10, height*0.10, 8); //Exit Button
    ellipse(0.2*width, 0.25*height, 0.12*width, 0.12*width); //Planet Placeholder
    rectMode(CENTER);
@@ -40,21 +45,21 @@ class PlanetBuilderState extends State
    rectMode(CORNER);
    //dwarf button
    image(img1, 0.925*width, height*0.2, height*0.15, height*0.15);
-   Button DwarfButton = new Button("", int(0.925*width),int(height*0.2),int(height*0.15),int(height*0.15), 255, 0); 
+   Button DwarfButton = new Button("", 0.925*width,height*0.2,height*0.15,height*0.15, 255, 0); 
    DwarfButton.displayButton();
    if(DwarfButton.ButtonPressed() == true)
    choice = 'D';
    
    //terrestrial button
    image(img2, 0.925*width, height*0.355, height*0.15, height*0.15);
-   Button TerrestrialButton = new Button("", int(0.925*width),int(height*0.355),int(height*0.15),int(height*0.15), 255, 0); 
+   Button TerrestrialButton = new Button("", 0.925*width,height*0.355,height*0.15,height*0.15, 255, 0); 
    TerrestrialButton.displayButton();
    if(TerrestrialButton.ButtonPressed() == true)
    choice = 'T';
    
    //Giant button
    image(img3, 0.925*width, height*0.55, height*0.15, height*0.15);
-   Button GiantButton = new Button("", int(0.925*width),int(height*0.55),int(height*0.15),int(height*0.15), 255, 0); 
+   Button GiantButton = new Button("", 0.925*width,height*0.55,height*0.15,height*0.15, 255, 0); 
    GiantButton.displayButton();
    if(GiantButton.ButtonPressed() == true)
    choice = 'G';
@@ -71,15 +76,21 @@ class PlanetBuilderState extends State
    text("Create", 0.75*width, 0.9*height);
    
    if (choice == 'D'){
+   dwarfName.displayTextbox();
+   dwarfName.type();
    massSliderDwarf.displaySlider();
    radiusSliderDwarf.displaySlider();
    }
    
    if (choice == 'T'){
+   TerrestrialName.displayTextbox();
+   TerrestrialName.type();  
    massSliderTerrestrial.displaySlider();
    radiusSliderTerrestrial.displaySlider();
    }
    if (choice == 'G'){
+   GiantName.displayTextbox();
+   GiantName.type();  
    massSliderGiant.displaySlider();
    radiusSliderGiant.displaySlider();
    }
@@ -98,6 +109,7 @@ class Planet{
   double msun =1;
   int planetColor;
   float angle;
+  float xOrbitDiam, yOrbitDiam, planetDiam;
   void renderPlanet(float x, float y, float diam){
     noStroke();
     fill(planetColor);
@@ -121,6 +133,9 @@ class Dwarf extends Planet {
   dist_from_sun = counter* 500*pow(10,3);
   planetColor = #A0D0F0;
   angle = random(0, 2*PI);
+  xOrbitDiam = width*0.4;
+  yOrbitDiam = height*0.2;
+  planetDiam = log((float)radius)*width*0.002;
   //orbit_speed = sqrt(radius/(G*msun));
   }
 }
@@ -134,6 +149,9 @@ class Terrestrial extends Planet {
   dist_from_sun = counter* 500*pow(10,3);
   planetColor = #25890A;
   angle = random(0, 2*PI);
+  xOrbitDiam = width*0.6;
+  yOrbitDiam = height*0.3;
+  planetDiam = log((float)radius)*width*0.002;
  // orbit_speed = sqrt(radius/(G*msun));
   }
 }
@@ -147,6 +165,9 @@ class Giant extends Planet {
   dist_from_sun = counter* 500*pow(10,3);
   planetColor = #B7116C;
   angle = random(0, 2*PI);
+  xOrbitDiam = width*0.9;
+  yOrbitDiam = height*0.45;
+  planetDiam = log((float)radius)*width*0.002;
   //orbit_speed = sqrt(radius/(G*msun));
   }
 }
