@@ -38,6 +38,7 @@ void keyPressed()
 void backPressed()
 {
   keyboard = false;
+  textinput = "";
 }
 
 class State
