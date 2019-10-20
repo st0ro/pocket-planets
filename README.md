@@ -20,3 +20,6 @@ https://spaceplace.nasa.gov/ice-dwarf/en/ picture of pluto
 https://www.nasa.gov/topics/earth/overview/index.html earth right now
 
 https://www.nasa.gov/centers/langley/science/jupiter-opposition.html picture of jupiter
+
+https://greatlakesledger.com/2019/05/09/blue-supergiant-stars-mysteries-discovered-by-nasa-telescopes/ 
+picture of blue star
