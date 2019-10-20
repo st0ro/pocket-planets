@@ -32,6 +32,12 @@ class StarBuilderState extends State
     textAlign(LEFT, CENTER);
     textSize(48);
     text("Star Size (compared to the Sun)", width*.63, height*0.6);
+    textSize(96);
+    textAlign(CENTER, TOP);
+    text(userStar.starName, width*.8, height*0.03);
+    textSize(48);
+    //text(
+    
     
     if(yellowButton.ButtonPressed())
     {
@@ -57,7 +63,7 @@ class StarBuilderState extends State
 class Star
 {
   double tempMin, tempMax, radMin, radMax, massMin, massMax, prev, radUser, massUser, radView;
-  String lifeMin, lifeMax, starName, userName;
+  String life, starName, userName;
   int starColor, star2ndColor, star3rdColor;
   Star(String in) {
     starName = in;
@@ -78,8 +84,7 @@ class StarYellowDwarf extends Star
   StarYellowDwarf()
   {
     super("Yellow Dwarf");
-    lifeMin = "4 billion";
-    lifeMax = "17 billion";
+    life = "4-17 billion years";
     tempMin = 5000;
     tempMax = 7300;
     radMin = 0.96;
@@ -97,8 +102,7 @@ class StarRedDwarf extends Star
   StarRedDwarf()
   {
     super("Red Dwarf");
-    lifeMin = "73 billion";
-    lifeMax = "5.5 trillion";
+    life = "73-5500 billion years";
     tempMin = 1800;
     tempMax = 3500;
     radMin = 0.12;
@@ -116,8 +120,7 @@ class StarBlueGiant extends Star
   StarBlueGiant()
   {
     super("Blue Giant");
-    lifeMin = "3 million";
-    lifeMax = "4 billion";
+    life = "3-4000 million years";
     tempMin = 7300;
     tempMax = 200000;
     radMin = 1.4;
