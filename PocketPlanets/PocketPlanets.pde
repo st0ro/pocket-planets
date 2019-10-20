@@ -1,10 +1,10 @@
 State[] states = new State[4];
-
 boolean keyboard = false;
-int currentState = 3;
+int currentState = 1;
 Star userStar;
 Planet[] planets = new Planet[3];
 String textinput = "";
+PFont font;
 
 void setup()
 {
@@ -16,14 +16,14 @@ void setup()
   states[2] = new SolarViewState();
   states[3] = new StarBuilderState();
   starInit();
+  font = loadFont("OCRAExtended-48.vlw");
 }
-Textbox test = new Textbox(500, 200, 300, 100);
+
 void draw()
 {
   background(0);
   starDraw();
   states[currentState].update();
-  test.displayTextbox();
 }
 
 void keyPressed()
@@ -42,7 +42,7 @@ class State
 class Button
 {
   String label;
-  int x, y, h, w;
+  float x, y, h, w;
   int colour, trans;
 
   void displayButton()
@@ -64,7 +64,7 @@ class Button
     return false;
   }
 
-  Button(String l, int a, int b, int c, int d, int e, int f)
+  Button(String l, float a, float b, float c, float d, int e, int f)
   {
     label = l;
     x=a;
