@@ -107,6 +107,7 @@ class PlanetBuilderState extends State
      temp = new Dwarf();
      if(index < 9)
        index++;
+     textinput = "";
      currentState = 2;
    }
    
