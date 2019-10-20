@@ -165,6 +165,7 @@ class Planet{
   int planetColor;
   float angle;
   float xOrbitDiam, yOrbitDiam, planetDiam;
+  int revenue = (int) (radius/orbit_speed*1000000);
   void renderPlanet(float x, float y, float diam){
     noStroke();
     fill(planetColor);
@@ -192,6 +193,7 @@ class Dwarf extends Planet {
   yOrbitDiam = height*0.45;
   planetDiam = log((float)radius)*width*0.002;
   orbit_speed = PI/200;
+  revenue = (int) (radius/(orbit_speed*5000000));
   }
 }
   
@@ -208,6 +210,7 @@ class Terrestrial extends Planet {
   yOrbitDiam = height*0.2;
   planetDiam = log((float)radius)*width*0.002;
   orbit_speed = PI/90;
+  revenue = (int) (radius/(orbit_speed*5000000));
   }
 }
   
@@ -224,5 +227,6 @@ class Giant extends Planet {
   yOrbitDiam = height*0.3;
   planetDiam = log((float)radius)*width*0.002;
   orbit_speed = PI/140;
+  revenue = (int) (radius/(orbit_speed*5000000));
   }
 }

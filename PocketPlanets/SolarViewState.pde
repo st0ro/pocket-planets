@@ -14,6 +14,10 @@ class SolarViewState extends State
   void update()
   { 
     if (currentState ==2) {
+      for (int i = 0; i < planets.length; i++)
+      {
+        stardust+=planets[i].revenue;
+      }
       fill(#7F7F7F);
       textAlign(CENTER, CENTER);
       rect(width*0.9, height*4/5, width*0.1, width*0.1, 10); //build icon
@@ -46,7 +50,7 @@ class SolarViewState extends State
       image(img3, width * 0.89, height*0.078, width *0.05, width *0.05);
       textSize(80);
       textAlign(LEFT, CENTER);
-      text(money + " SDs", width*0.02, height*0.1);
+      text(stardust + " SDs", width*0.02, height*0.1);
 
       for (int i = 0; i < planets.length; i++)
       {
