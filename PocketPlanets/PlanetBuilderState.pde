@@ -16,6 +16,7 @@ class PlanetBuilderState extends State
   
   PlanetBuilderState()
   {
+    planets[0] = new Dwarf();
   }
   
   void update()
@@ -95,6 +96,21 @@ class Planet{
   int counter = 0;
   double G = 6.67048 * pow(10,-11);
   double msun =1;
+  int planetColor;
+  float angle;
+  void renderPlanet(float x, float y, float diam){
+    noStroke();
+    fill(planetColor);
+    ellipse(x, y, diam, diam);
+  }
+  void planetUpdate(float xRadius, float yRadius, float planetDiam)
+  {
+    float x, y;
+    x = width*0.5 + xRadius*cos(angle);
+    y = height*0.5 + yRadius*sin(angle);
+    renderPlanet(x, y, planetDiam);
+    angle += PI/60;
+  }
 }
 class Dwarf extends Planet { 
   
@@ -103,6 +119,8 @@ class Dwarf extends Planet {
   radius = random(300*pow(10,3),2000*pow(10,3)); // radius is  m
   name = "Barack Obama";
   dist_from_sun = counter* 500*pow(10,3);
+  planetColor = #A0D0F0;
+  angle = random(0, 2*PI);
   //orbit_speed = sqrt(radius/(G*msun));
   }
 }
@@ -114,6 +132,8 @@ class Terrestrial extends Planet {
   radius = random(300*pow(10,3),2000*pow(10,3)); // radius is  m
   name = "Barack Obama 2";
   dist_from_sun = counter* 500*pow(10,3);
+  planetColor = #25890A;
+  angle = random(0, 2*PI);
  // orbit_speed = sqrt(radius/(G*msun));
   }
 }
@@ -125,6 +145,8 @@ class Giant extends Planet {
   radius = random(300*pow(10,3),2000*pow(10,3)); // radius is  m
   name = "Barack Obama 3";
   dist_from_sun = counter* 500*pow(10,3);
+  planetColor = #B7116C;
+  angle = random(0, 2*PI);
   //orbit_speed = sqrt(radius/(G*msun));
   }
 }
