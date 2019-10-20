@@ -20,9 +20,7 @@ class MainMenuState extends State
 
     
     if(touchIsStarted){
-        println("touch started");
-        //go to the homepage of the game, starBuilderState
-        
+        currentState = 3;
     }
   }
   

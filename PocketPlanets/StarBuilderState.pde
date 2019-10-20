@@ -57,6 +57,10 @@ class StarBuilderState extends State
       sizeSlider.min = (float)userStar.radMin;
       sizeSlider.max = (float)userStar.radMax;
     }
+    if(goButton.ButtonPressed())
+    {
+      currentState = 2;
+    }
   }
 }
 
