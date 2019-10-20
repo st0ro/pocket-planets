@@ -4,8 +4,8 @@ class PlanetBuilderState extends State
      
   PlanetBuilderState()
   {
-    planets[0] = new Dwarf();
-    planets[1] = new Dwarf();
+    planets[0] = new Terrestrial();
+    planets[1] = new Giant();
     planets[2] = new Dwarf();
   }
   
