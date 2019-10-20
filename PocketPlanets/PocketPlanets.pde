@@ -1,6 +1,7 @@
 State[] states = new State[4];
 
-int currentState = 3;
+int currentState = 1;
+
 
 Star userStar;
 
@@ -32,11 +33,11 @@ class Button
 {
   String label;
   int x, y, h, w;
-  int colour;
+  int colour, trans;
 
   void displayButton()
   {
-    fill(colour);
+    fill(colour, trans);
     rect(x, y, w, h);
     fill(0);
     textSize(h*0.75);
@@ -53,7 +54,7 @@ class Button
     return false;
   }
 
-  Button(String l, int a, int b, int c, int d, int e)
+  Button(String l, int a, int b, int c, int d, int e, int f)
   {
     label = l;
     x=a;
@@ -61,6 +62,7 @@ class Button
     w=c;
     h=d;
     colour = e;
+    trans = f;
   }
 }
 
