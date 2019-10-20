@@ -19,13 +19,11 @@ void setup()
   starInit();
   font = loadFont("OCRAExtended-48.vlw");
 }
-Textbox test = new Textbox(500, 200, 300, 100);
 void draw()
 {
   background(0);
   starDraw();
   states[currentState].update();
-  test.displayTextbox();
 }
 
 void keyPressed()
