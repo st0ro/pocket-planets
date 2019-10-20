@@ -1,5 +1,6 @@
 State[] states = new State[4];
 
+boolean keyboard = false;
 int currentState = 3;
 Star userStar;
 String textinput = "";
@@ -140,7 +141,7 @@ class Textbox
   {
     for (int i = 0; i <touches.length; i++)
     {
-      if (touches[i].x > x-20 && touches[i].x < x + w + 20 && touches[i].y > y - 20 && touches[i].y < y + h + 20)
+      if (touches[i].x > x-20 && touches[i].x < x + w + 20 && touches[i].y > y - 20 && touches[i].y < y + h + 20 && !keyboard)
         openKeyboard();
     }
   }
