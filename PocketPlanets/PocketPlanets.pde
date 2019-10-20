@@ -36,6 +36,11 @@ void keyPressed()
     textinput = textinput.substring(0, textinput.length() - 1);
 }
 
+void backPressed()
+{
+  keyboard = false;
+}
+
 class State
 {
   void update() {}
@@ -146,8 +151,11 @@ class Textbox
     for (int i = 0; i <touches.length; i++)
     {
       if (touches[i].x > x-20 && touches[i].x < x + w + 20 && touches[i].y > y - 20 && touches[i].y < y + h + 20 && !keyboard)
+        {
         openKeyboard();
-    }
+        keyboard = true;
+        }  
+  }
   }
 
   void displayTextbox()
