@@ -50,7 +50,10 @@ class SolarViewState extends State
         arc(width*0.5, height*0.5, planets[i].xOrbitDiam, planets[i].yOrbitDiam, PI, 2*PI);
         if (sin(planets[i].angle) < 0)
           planets[i].planetUpdate(planets[i].xOrbitDiam*0.5, planets[i].yOrbitDiam*0.5, planets[i].planetDiam);
-        userStar.renderStar(width*0.5, height*0.5, height*0.5);//sun
+      }
+      userStar.renderStar(width*0.5, height*0.5, height*0.5);//sun
+      for (int i = 0; i < planets.length; i++)
+      {
         noFill();
         strokeWeight(5);
         stroke(225);
