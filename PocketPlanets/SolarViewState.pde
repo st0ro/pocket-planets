@@ -45,16 +45,17 @@ class SolarViewState extends State
       noFill();
       strokeWeight(5);
       stroke(225);
-      arc(width*0.5, height*0.5, width*0.4, height*0.2, PI, 2*PI);
+      arc(width*0.5, height*0.5, planets[0].xOrbitDiam, planets[0].yOrbitDiam, PI, 2*PI);
       if(sin(planets[0].angle) < 0)
-        planets[0].planetUpdate(width*0.4*0.5, height*0.2*0.5, 100);
+        planets[0].planetUpdate(planets[0].xOrbitDiam*0.5, planets[0].yOrbitDiam*0.5, planets[0].planetDiam);
       userStar.renderStar(width*0.5, height*0.5, height*0.5);//sun
       noFill();
       strokeWeight(5);
       stroke(225);
-      arc(width*0.5, height*0.5, width*0.4, height*0.2, 0, PI);
+      arc(width*0.5, height*0.5, planets[0].xOrbitDiam, planets[0].yOrbitDiam, 0, PI);
       if(sin(planets[0].angle) > 0)
-        planets[0].planetUpdate(width*0.4*0.5, height*0.2*0.5, 100);
+        planets[0].planetUpdate(planets[0].xOrbitDiam*0.5, planets[0].yOrbitDiam*0.5, planets[0].planetDiam);
+        
       noStroke();
     }
   }

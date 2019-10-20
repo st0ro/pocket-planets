@@ -5,6 +5,8 @@ class PlanetBuilderState extends State
   PlanetBuilderState()
   {
     planets[0] = new Dwarf();
+    planets[1] = new Dwarf();
+    planets[2] = new Dwarf();
   }
   
   void update()
@@ -59,6 +61,7 @@ class Planet{
   double msun =1;
   int planetColor;
   float angle;
+  float xOrbitDiam, yOrbitDiam, planetDiam;
   void renderPlanet(float x, float y, float diam){
     noStroke();
     fill(planetColor);
@@ -82,6 +85,9 @@ class Dwarf extends Planet {
   dist_from_sun = counter* 500*pow(10,3);
   planetColor = #A0D0F0;
   angle = random(0, 2*PI);
+  xOrbitDiam = width*0.4;
+  yOrbitDiam = height*0.2;
+  planetDiam = log((float)radius)*width*0.002;
   //orbit_speed = sqrt(radius/(G*msun));
   }
 }
@@ -95,6 +101,9 @@ class Terrestrial extends Planet {
   dist_from_sun = counter* 500*pow(10,3);
   planetColor = #25890A;
   angle = random(0, 2*PI);
+  xOrbitDiam = width*0.6;
+  yOrbitDiam = height*0.3;
+  planetDiam = log((float)radius)*width*0.002;
  // orbit_speed = sqrt(radius/(G*msun));
   }
 }
@@ -108,6 +117,9 @@ class Giant extends Planet {
   dist_from_sun = counter* 500*pow(10,3);
   planetColor = #B7116C;
   angle = random(0, 2*PI);
+  xOrbitDiam = width*0.9;
+  yOrbitDiam = height*0.45;
+  planetDiam = log((float)radius)*width*0.002;
   //orbit_speed = sqrt(radius/(G*msun));
   }
 }
