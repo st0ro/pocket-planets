@@ -14,3 +14,9 @@ https://www.brainpop.com/science/space/solarsystem/ picture of solar
 https://en.wikipedia.org/wiki/Galaxy picture of galaxy
 
 https://en.wikipedia.org/wiki/Universe picture of universe
+
+https://spaceplace.nasa.gov/ice-dwarf/en/ picture of pluto
+
+https://www.nasa.gov/topics/earth/overview/index.html earth right now
+
+https://www.nasa.gov/centers/langley/science/jupiter-opposition.html picture of jupiter
