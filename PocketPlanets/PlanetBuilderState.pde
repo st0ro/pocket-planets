@@ -194,7 +194,7 @@ class Dwarf extends Planet {
   angle = random(0, 2*PI);
   xOrbitDiam = width*0.9;
   yOrbitDiam = height*0.45;
-  planetDiam = log((float)radius)*width*0.002;
+  planetDiam = log((float)radius)*width*0.0015;
   orbit_speed = PI/200;
   revenue = 100;
   cost = 70000;
@@ -230,7 +230,7 @@ class Giant extends Planet {
   angle = random(0, 2*PI);
   xOrbitDiam = width*0.6;
   yOrbitDiam = height*0.3;
-  planetDiam = log((float)radius)*width*0.002;
+  planetDiam = log((float)radius)*width*0.004;
   orbit_speed = PI/140;
   revenue = 10;
   cost = 25000;
