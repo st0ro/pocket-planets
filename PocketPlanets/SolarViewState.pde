@@ -16,7 +16,8 @@ class SolarViewState extends State
     if (currentState ==2) {
       for (int i = 0; i < planets.length; i++)
       {
-        stardust+=planets[i].revenue;
+        if(planets[i] != null)
+          stardust+=planets[i].revenue;
       }
       fill(#7F7F7F);
       textAlign(CENTER, CENTER);
@@ -28,18 +29,6 @@ class SolarViewState extends State
       if(BuildButton.ButtonPressed() == true)
       currentState = 1;
       image(img4, width*0.9, height*4/5, width*0.1, width*0.1);
-      fill(#7F7F7F);
-      rect(0, height*3/4, width/8, height, 10); //player icon
-      
-      rect(width/8, height*0.9, width*2.5/10, height*0.1, 10); // XP bar
-      fill(0);
-      textSize(50);
-      text("5/10", (width/8)+(width*2.5/20), height*0.95);//XP
-      fill(#7F7F7F);
-      rect(width/8, height*0.8, height*0.1, height*0.1, 10); // level bar
-      fill(0);
-      textSize(70);
-      text("69", width/8 + width/(15*5), height*0.88);//level
       fill(#7F7F7F);
       rect (width * 0.75, height*0.078, width *0.05, width *0.05, 10);
       rect (width * 0.82, height*0.078, width *0.05, width *0.05, 10);

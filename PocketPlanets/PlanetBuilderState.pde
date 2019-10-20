@@ -103,6 +103,7 @@ class PlanetBuilderState extends State
    if(CreateButton.ButtonPressed() == true)
    {
      planets[index] = temp;
+     stardust -= temp.cost;
      temp = new Dwarf();
      if(index < 9)
        index++;
@@ -117,7 +118,7 @@ class PlanetBuilderState extends State
    text("Name", 0.4525*width, 0.3*height);
    text("Mass", 0.4525*width, 0.5*height);
    text("Radius", 0.4525*width, 0.7*height);
-   text("Cost", 0.4525*width, 0.9*height);
+   text("Cost: "+temp.cost, 0.52*width, 0.9*height);
    
    if (choice == 'D'){
    DwarfName.displayTextbox();
@@ -166,6 +167,7 @@ class Planet{
   float angle;
   float xOrbitDiam, yOrbitDiam, planetDiam;
   int revenue = (int) (radius/orbit_speed*1000000);
+  int cost;
   void renderPlanet(float x, float y, float diam){
     noStroke();
     fill(planetColor);
@@ -193,7 +195,8 @@ class Dwarf extends Planet {
   yOrbitDiam = height*0.45;
   planetDiam = log((float)radius)*width*0.002;
   orbit_speed = PI/200;
-  revenue = (int) (radius/(orbit_speed*5000000));
+  revenue = 100;
+  cost = 70000;
   }
 }
   
@@ -210,7 +213,8 @@ class Terrestrial extends Planet {
   yOrbitDiam = height*0.2;
   planetDiam = log((float)radius)*width*0.002;
   orbit_speed = PI/90;
-  revenue = (int) (radius/(orbit_speed*5000000));
+  revenue = 3;
+  cost = 10000;
   }
 }
   
@@ -227,6 +231,7 @@ class Giant extends Planet {
   yOrbitDiam = height*0.3;
   planetDiam = log((float)radius)*width*0.002;
   orbit_speed = PI/140;
-  revenue = (int) (radius/(orbit_speed*5000000));
+  revenue = 10;
+  cost = 25000;
   }
 }
