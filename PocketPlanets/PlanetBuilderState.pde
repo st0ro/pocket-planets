@@ -73,7 +73,7 @@ class Planet{
     x = width*0.5 + xRadius*cos(angle);
     y = height*0.5 + yRadius*sin(angle);
     renderPlanet(x, y, planetDiam);
-    angle += PI/60;
+    angle += orbit_speed;
   }
 }
 class Dwarf extends Planet { 
@@ -85,10 +85,10 @@ class Dwarf extends Planet {
   dist_from_sun = counter* 500*pow(10,3);
   planetColor = #A0D0F0;
   angle = random(0, 2*PI);
-  xOrbitDiam = width*0.4;
-  yOrbitDiam = height*0.2;
+  xOrbitDiam = width*0.9;
+  yOrbitDiam = height*0.45;
   planetDiam = log((float)radius)*width*0.002;
-  //orbit_speed = sqrt(radius/(G*msun));
+  orbit_speed = PI/200;
   }
 }
   
@@ -101,10 +101,10 @@ class Terrestrial extends Planet {
   dist_from_sun = counter* 500*pow(10,3);
   planetColor = #25890A;
   angle = random(0, 2*PI);
-  xOrbitDiam = width*0.6;
-  yOrbitDiam = height*0.3;
+  xOrbitDiam = width*0.4;
+  yOrbitDiam = height*0.2;
   planetDiam = log((float)radius)*width*0.002;
- // orbit_speed = sqrt(radius/(G*msun));
+  orbit_speed = PI/90;
   }
 }
   
@@ -117,9 +117,9 @@ class Giant extends Planet {
   dist_from_sun = counter* 500*pow(10,3);
   planetColor = #B7116C;
   angle = random(0, 2*PI);
-  xOrbitDiam = width*0.9;
-  yOrbitDiam = height*0.45;
+  xOrbitDiam = width*0.6;
+  yOrbitDiam = height*0.3;
   planetDiam = log((float)radius)*width*0.002;
-  //orbit_speed = sqrt(radius/(G*msun));
+  orbit_speed = PI/140;
   }
 }
