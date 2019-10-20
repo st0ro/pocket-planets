@@ -4,6 +4,7 @@ class PlanetBuilderState extends State
   PImage img2 =loadImage("earth.jpg");
   PImage img3 =loadImage("Jupiter.jpg");   
   PImage img4 =loadImage("Star.jpg");   
+  PImage img5 = loadImage("cross.png");
   char choice = 'D';
   int index = 0;
   Planet temp;
@@ -14,11 +15,19 @@ class PlanetBuilderState extends State
   Slider radiusSliderTerrestrial = new Slider(width*0.55, height*0.65,width*0.3,4000,40000, 255);
   Slider massSliderGiant = new Slider(width*0.55, height*0.45,width*0.3,100,2000, 255); //units 10^24
   Slider radiusSliderGiant = new Slider(width*0.55, height*0.65,width*0.3,40000,150000, 255);
+  
   Button DwarfButton = new Button("", 0.925*width,height*0.2,height*0.15,height*0.15, 255, 0); 
   Button TerrestrialButton = new Button("", 0.925*width,height*0.355,height*0.15,height*0.15, 255, 0); 
+<<<<<<< Updated upstream
   Button GiantButton = new Button("", 0.925*width,height*0.55,height*0.15,height*0.15, 255, 0);
   Button CreateButton = new Button("Create", 0.75*width, 0.9*height, width*0.2, height*0.12, #BFBFBF, 255);
   Textbox DwarfName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
+=======
+  Button GiantButton = new Button("", 0.925*width,height*0.55,height*0.15,height*0.15, 255, 0); 
+  Button ExitButton = new Button("", 0.9355*width, 0+0.025*height, height*0.10, height*0.10, 255, 0);
+  
+  Textbox dwarfName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
+>>>>>>> Stashed changes
   Textbox TerrestrialName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
   Textbox GiantName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
   
@@ -37,6 +46,7 @@ class PlanetBuilderState extends State
    
    
    fill(#000000);
+<<<<<<< Updated upstream
    rect(0.925*width, 0,height*0.2, height); //Selection Bar
    
    fill(255);
@@ -53,6 +63,18 @@ class PlanetBuilderState extends State
      temp.renderPlanet(0.2*width, 0.32*height, 0.06*width*log(radiusSliderGiant.current/1000));
      break;
    }
+=======
+   rect(0.92*width, 0,height*0.2, height); //Selection Bar
+   noStroke();
+   fill(#BFBFBF);
+   //rect(0.9355*width, 0+0.025*height, height*0.10, height*0.10, 8); //Exit Button
+   image(img5,0.9355*width, 0+0.025*height, height*0.10, height*0.10);
+   ExitButton.displayButton();
+      if(ExitButton.ButtonPressed() == true)
+      currentState = 2;
+      
+   ellipse(0.2*width, 0.25*height, 0.12*width, 0.12*width); //Planet Placeholder
+>>>>>>> Stashed changes
    rectMode(CENTER);
    noFill(); 
    stroke(0);

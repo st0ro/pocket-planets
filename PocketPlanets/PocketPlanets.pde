@@ -1,6 +1,10 @@
 State[] states = new State[4];
 boolean keyboard = false;
+<<<<<<< Updated upstream
 int currentState = 1;
+=======
+int currentState = 2;
+>>>>>>> Stashed changes
 Star userStar;
 Planet[] planets = new Planet[3];
 String textinput = "";

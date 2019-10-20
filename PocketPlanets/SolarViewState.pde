@@ -1,12 +1,14 @@
 class SolarViewState extends State
 {
-  PImage img1, img2, img3;
+  PImage img1, img2, img3,img4;
   int money;
+  Button BuildButton = new Button("", width*0.9, height*4/5, width*0.1, width*0.1, 255, 0);
   SolarViewState()
   {
     img1 =loadImage("solar.png");
     img2 =loadImage("galaxy.jpg");
     img3 =loadImage("universe.jpg");
+    img4 = loadImage("hammer.png");
     money = 100000;
   }
   void update()
@@ -17,9 +19,14 @@ class SolarViewState extends State
       rect(width*0.9, height*4/5, width*0.1, width*0.1, 10); //build icon
       fill(0);
       textSize(80);
-      text("Build", width*0.91, height*4.6/5);//build text
+      //text("Build", width*0.91, height*4.6/5);//build 
+      BuildButton.displayButton();
+      if(BuildButton.ButtonPressed() == true)
+      currentState = 1;
+      image(img4, width*0.9, height*4/5, width*0.1, width*0.1);
       fill(#7F7F7F);
       rect(0, height*3/4, width/8, height, 10); //player icon
+      
       rect(width/8, height*0.9, width*2.5/10, height*0.1, 10); // XP bar
       fill(0);
       textSize(50);
