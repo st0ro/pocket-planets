@@ -16,7 +16,7 @@ void setup()
   states[2] = new SolarViewState();
   states[3] = new StarBuilderState();
   starInit();
-  font = loadFont("OCRAExtended-48.vlw");
+  font = createFont("OCRAEXT.TTF", 32);
 }
 
 void draw()
