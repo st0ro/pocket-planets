@@ -8,7 +8,42 @@ class PlanetBuilderState extends State
   
   void update()
   {
-    //rect 
+   noStroke();
+   fill(#7F7F7F, 170);
+   rect(0.4*width, 0, 0.60*width, height, 5); //Backdrop right 
+   
+   //rect(0.05*width, 0.55*height, 0.4*width, height*0.40, 5); //Backdrop left
+   fill(#000000);
+   rect(0.925*width, 0,height*0.2, height); //Selection Bar
+   fill(255);
+   
+   
+   rect(0.9355*width, 0+0.025*height, height*0.10, height*0.10, 8); //Exit Button
+   ellipse(0.2*width, 0.25*height, 0.12*width, 0.12*width); //Planet Placeholder
+   rectMode(CENTER);
+   noFill(); 
+   stroke(0);
+   
+   rectMode(CORNER);
+   PImage img1=loadImage("Dwarf.jpeg");
+   image(img1, 0.925*width, height*0.2, height*0.15, height*0.15);
+   PImage img2 =loadImage("earth.jpg");
+   image(img2, 0.925*width, height*0.355, height*0.15, height*0.15);
+   PImage img3 =loadImage("Jupiter.jpg");
+   image(img3, 0.925*width, height*0.55, height*0.15, height*0.15);
+   PImage img4 =loadImage("Star.jpg");
+   image(img4, 0.925*width, height*0.75, height*0.15, height*0.12);
+   
+   textSize(width/25);
+   text("Planet Settings", 0.6625*width, 0.1*height);
+   textSize(width/35);
+   text("Name", 0.4525*width, 0.3*height);
+   text("Mass", 0.4525*width, 0.5*height);
+   text("Radius", 0.4525*width, 0.7*height);
+   text("Cost", 0.4525*width, 0.9*height);
+   text("Create", 0.75*width, 0.9*height);
+   
+   
   }
 }
 

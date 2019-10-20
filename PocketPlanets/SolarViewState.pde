@@ -41,6 +41,8 @@ class SolarViewState extends State
       image(img3,width * 0.89, height*0.078, width *0.05,width *0.05);
       textSize(150);
       text("420 SDs", width*0.1,height*0.1);
+      
+      userStar.renderStar(width*0.5, height*0.5, height*0.5);//sun
     }
   }
 }

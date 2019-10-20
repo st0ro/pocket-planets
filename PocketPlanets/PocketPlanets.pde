@@ -1,34 +1,40 @@
 State[] states = new State[4];
 
-int currentState = 0;
-
+int currentState = 3;
 Star userStar;
-PFont font;
+String textinput = "";
 
 void setup()
 {
   frameRate(60);
   orientation(LANDSCAPE);
   textAlign(CENTER, CENTER);
-  font = loadFont("OCRAExtended-48.vlw");
   states[0] = new MainMenuState();
   states[1] = new PlanetBuilderState();
   states[2] = new SolarViewState();
   states[3] = new StarBuilderState();
   starInit();
 }
-
+Textbox test = new Textbox(500, 200, 300, 100);
 void draw()
 {
   background(0);
   starDraw();
   states[currentState].update();
+  test.displayTextbox();
+}
+
+void keyPressed()
+{
+  if ((key>= 'a' && key<='z')||(key>='A' && key<='Z')||(key=='-')||(key>='0' && key <= '9'))
+    textinput = textinput + key;
+  else if (key==65535 && textinput.length() > 0)
+    textinput = textinput.substring(0, textinput.length() - 1);
 }
 
 class State
 {
-  void update() {
-  }
+  void update() {}
 }
 
 class Button
@@ -69,9 +75,9 @@ class Button
 
 class Slider
 {
-  int x, y, w, min, max; 
+  float x, y, w, min, max; 
   float current;
-  int sx;
+  float sx;
   int colour;
 
   void displaySlider()
@@ -85,7 +91,7 @@ class Slider
     textSize(40);
     text(min, x, y+150);
     text(max, x+w, y+150);
-    text((int)current, x+(w/2), y+150);
+    text(current, x+(w/2), y+150);
   }
 
   boolean selectSlider()
@@ -115,7 +121,7 @@ class Slider
     }
   }
 
-  Slider(int a, int b, int c, int d, int e, int f)
+  Slider(float a, float b, float c, float d, float e, int f)
   {
     x = a;
     sx = a;
@@ -124,5 +130,38 @@ class Slider
     min = d;
     max = e;
     colour = f;
+  }
+}
+
+class Textbox
+{
+  int x, y, w, h;
+  void type()
+  {
+    for (int i = 0; i <touches.length; i++)
+    {
+      if (touches[i].x > x-20 && touches[i].x < x + w + 20 && touches[i].y > y - 20 && touches[i].y < y + h + 20)
+        openKeyboard();
+    }
+  }
+
+  void displayTextbox()
+  {
+    type();
+    fill(255);
+    rect(x, y, w, h);
+    fill(0);
+    textAlign(LEFT, CENTER);
+    textSize(h*0.75);
+    text(textinput, x + 10, y + h/2);
+    textAlign(CENTER, CENTER);
+  }
+
+  Textbox(int a, int b, int c, int d)
+  {
+    x = a;
+    y = b;
+    w = c;
+    h = d;
   }
 }
