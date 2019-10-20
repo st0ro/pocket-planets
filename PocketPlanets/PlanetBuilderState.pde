@@ -5,6 +5,9 @@ class PlanetBuilderState extends State
   PImage img3 =loadImage("Jupiter.jpg");   
   PImage img4 =loadImage("Star.jpg");   
   char choice = 'D';
+  int index = 0;
+  Planet temp;
+  
   Slider massSliderDwarf = new Slider(width*0.55, height*0.45,width*0.3,0.0001,0.02,255); //units x10^24
   Slider radiusSliderDwarf = new Slider(width*0.55, height*0.65,width*0.3,200,2000, 255);
   Slider massSliderTerrestrial = new Slider(width*0.55, height*0.45,width*0.3,0.1,60, 255);//units 10^24
@@ -13,16 +16,15 @@ class PlanetBuilderState extends State
   Slider radiusSliderGiant = new Slider(width*0.55, height*0.65,width*0.3,40000,150000, 255);
   Button DwarfButton = new Button("", 0.925*width,height*0.2,height*0.15,height*0.15, 255, 0); 
   Button TerrestrialButton = new Button("", 0.925*width,height*0.355,height*0.15,height*0.15, 255, 0); 
-  Button GiantButton = new Button("", 0.925*width,height*0.55,height*0.15,height*0.15, 255, 0); 
-  Textbox dwarfName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
+  Button GiantButton = new Button("", 0.925*width,height*0.55,height*0.15,height*0.15, 255, 0);
+  Button CreateButton = new Button("Create", 0.75*width, 0.9*height, width*0.2, height*0.12, #BFBFBF, 255);
+  Textbox DwarfName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
   Textbox TerrestrialName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
   Textbox GiantName = new Textbox (int(0.55*width), int(0.22*height), int(width*0.3),int(height*0.15));
   
   PlanetBuilderState()
   {
-    planets[0] = new Terrestrial();
-    planets[1] = new Giant();
-    planets[2] = new Dwarf();
+    temp = new Dwarf();
   }
   
   void update()
@@ -39,7 +41,18 @@ class PlanetBuilderState extends State
    
    fill(255);
    rect(0.9355*width, 0+0.025*height, height*0.10, height*0.10, 8); //Exit Button
-   ellipse(0.2*width, 0.25*height, 0.12*width, 0.12*width); //Planet Placeholder
+   switch(choice)
+   {
+     case 'D':
+     temp.renderPlanet(0.2*width, 0.32*height, 0.01*width*log(radiusSliderDwarf.current));
+     break;
+     case 'T':
+     temp.renderPlanet(0.2*width, 0.32*height, 0.01*width*log(radiusSliderTerrestrial.current));
+     break;
+     case 'G':
+     temp.renderPlanet(0.2*width, 0.32*height, 0.06*width*log(radiusSliderGiant.current/1000));
+     break;
+   }
    rectMode(CENTER);
    noFill(); 
    stroke(0);
@@ -49,19 +62,37 @@ class PlanetBuilderState extends State
    image(img1, 0.925*width, height*0.2, height*0.15, height*0.15);
    DwarfButton.displayButton();
    if(DwarfButton.ButtonPressed() == true)
-   choice = 'D';
+   {
+     choice = 'D';
+     temp = new Dwarf();
+   }
    
    //terrestrial button
    image(img2, 0.925*width, height*0.355, height*0.15, height*0.15);
    TerrestrialButton.displayButton();
    if(TerrestrialButton.ButtonPressed() == true)
-   choice = 'T';
+   {
+     choice = 'T';
+     temp = new Terrestrial();
+   }
    
    //Giant button
    image(img3, 0.925*width, height*0.55, height*0.15, height*0.15);
    GiantButton.displayButton();
    if(GiantButton.ButtonPressed() == true)
-   choice = 'G';
+   {
+     choice = 'G';
+     temp = new Giant();
+   }
+   
+   //Create button
+   CreateButton.displayButton();
+   if(CreateButton.ButtonPressed() == true)
+   {
+     planets[index] = temp;
+     temp = new Dwarf();
+     currentState = 2;
+   }
    
    image(img4, 0.925*width, height*0.75, height*0.15, height*0.12);
    
@@ -75,8 +106,8 @@ class PlanetBuilderState extends State
    text("Create", 0.75*width, 0.9*height);
    
    if (choice == 'D'){
-   dwarfName.displayTextbox();
-   dwarfName.type();
+   DwarfName.displayTextbox();
+   DwarfName.type();
    massSliderDwarf.displaySlider();
    radiusSliderDwarf.displaySlider();
    text("Name", 0.1*width, 0.70*height);
