@@ -79,6 +79,10 @@ class PlanetBuilderState extends State
    dwarfName.type();
    massSliderDwarf.displaySlider();
    radiusSliderDwarf.displaySlider();
+   text("Name", 0.1*width, 0.70*height);
+   text("Mass: " + massSliderDwarf.current, 0.1*width, 0.75*height);
+   text("Radius: " + radiusSliderDwarf.current, 0.1*width, 0.80*height);
+   text("Orbit time: ",0.1*width,0.85*height);
    }
    
    if (choice == 'T'){
@@ -86,14 +90,21 @@ class PlanetBuilderState extends State
    TerrestrialName.type();  
    massSliderTerrestrial.displaySlider();
    radiusSliderTerrestrial.displaySlider();
+   text("Name", 0.1*width, 0.70*height);
+   text("Mass: " + massSliderTerrestrial.current, 0.1*width, 0.75*height);
+   text("Radius: " + radiusSliderTerrestrial.current, 0.1*width, 0.80*height);
+   text("Orbit time: ",0.1*width,0.85*height);
    }
    if (choice == 'G'){
    GiantName.displayTextbox();
    GiantName.type();  
    massSliderGiant.displaySlider();
    radiusSliderGiant.displaySlider();
+   text("Name", 0.1*width, 0.70*height);
+   text("Mass: " + massSliderGiant.current, 0.1*width, 0.75*height);
+   text("Radius: " + radiusSliderGiant.current, 0.1*width, 0.80*height);
+   text("Orbit time: ",0.1*width,0.85*height);
    }
-   
   }
 }
 
