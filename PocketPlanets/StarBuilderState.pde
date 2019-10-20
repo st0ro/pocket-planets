@@ -2,7 +2,7 @@ class StarBuilderState extends State
 {
   StarBuilderState()
   {
-    userStar = new StarBlueGiant();
+    userStar = new StarYellowDwarf();
   }
   void update()
   {

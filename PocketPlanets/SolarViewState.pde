@@ -1,8 +1,11 @@
 class SolarViewState extends State
 {
+  PImage img1, img2, img3;
   SolarViewState()
   {
-    
+    img1 =loadImage("solar.png");
+    img2 =loadImage("galaxy.jpg");
+    img3 =loadImage("universe.jpg");
   }
   void update()
   { 
@@ -30,19 +33,29 @@ class SolarViewState extends State
       fill(0);
       textSize(70);
       text("S", width*0.76,height*0.15);
-      PImage img1 =loadImage("solar.png");
       image(img1,width * 0.75, height*0.078, width *0.05,width *0.05);
       text("G", width*0.83,height*0.15);
-      PImage img2 =loadImage("galaxy.jpg");
       image(img2,width * 0.82, height*0.078, width *0.05,width *0.05);
       
       text("U", width*0.90,height*0.15);
-      PImage img3 =loadImage("universe.jpg");
       image(img3,width * 0.89, height*0.078, width *0.05,width *0.05);
       textSize(150);
       text("420 SDs", width*0.1,height*0.1);
       
+      noFill();
+      strokeWeight(5);
+      stroke(225);
+      arc(width*0.5, height*0.5, width*0.4, height*0.2, PI, 2*PI);
+      if(sin(planets[0].angle) < 0)
+        planets[0].planetUpdate(width*0.4*0.5, height*0.2*0.5, 100);
       userStar.renderStar(width*0.5, height*0.5, height*0.5);//sun
+      noFill();
+      strokeWeight(5);
+      stroke(225);
+      arc(width*0.5, height*0.5, width*0.4, height*0.2, 0, PI);
+      if(sin(planets[0].angle) > 0)
+        planets[0].planetUpdate(width*0.4*0.5, height*0.2*0.5, 100);
+      noStroke();
     }
   }
 }

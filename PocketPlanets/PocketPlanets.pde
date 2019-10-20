@@ -3,6 +3,7 @@ State[] states = new State[4];
 int currentState = 2;
 
 Star userStar;
+Planet[] planets = new Planet[3];
 
 void setup()
 {
