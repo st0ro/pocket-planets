@@ -1,6 +1,6 @@
 State[] states = new State[4];
 boolean keyboard = false;
-int currentState = 1;
+int currentState = 3;
 Star userStar;
 Planet[] planets = new Planet[3];
 String textinput = "";
@@ -56,6 +56,7 @@ class Button
     rect(x, y, w, h);
     fill(0);
     textSize(h*0.75);
+    textAlign(CENTER, CENTER);
     text(label, x + (w/2), y + (h/2));
   }
 
@@ -97,6 +98,7 @@ class Slider
     rect(sx, y, 40, 100);
     fill(colour); 
     textSize(40);
+    textAlign(CENTER, CENTER);
     text(min, x, y+150);
     text(max, x+w, y+150);
     text(current, x+(w/2), y+150);
