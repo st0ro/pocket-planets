@@ -1,6 +1,6 @@
 State[] states = new State[4];
 boolean keyboard = false;
-int currentState = 0;
+int currentState = 1;
 Star userStar;
 Planet[] planets = new Planet[3];
 String textinput = "";
