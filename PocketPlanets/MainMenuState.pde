@@ -2,8 +2,6 @@ class MainMenuState extends State
 {
 
   MainMenuState(){
-    orientation(LANDSCAPE);
-
   }
  
   void update(){

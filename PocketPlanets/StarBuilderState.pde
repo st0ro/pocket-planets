@@ -6,10 +6,10 @@ class StarBuilderState extends State
   StarBuilderState()
   {
     userStar = new StarYellowDwarf();
-    sizeSlider = new Slider(width*0.64, height*0.6, width*.32, (float)userStar.radMin, (float)userStar.radMax, #BFBFBF);
-    yellowButton = new Button("", (int)(width*.63), (int)(height*0.4), (int)(width*.1), (int)(width*0.1), #7F7F7F, 255);
-    redButton = new Button("", (int)(width*.75), (int)(height*0.4), (int)(width*.1), (int)(width*0.1), #7F7F7F, 255);
-    blueButton = new Button("", (int)(width*.87), (int)(height*0.4), (int)(width*.1), (int)(width*0.1), #7F7F7F, 255);
+    sizeSlider = new Slider(width*0.64, height*0.65, width*.32, (float)userStar.radMin, (float)userStar.radMax, #BFBFBF);
+    yellowButton = new Button("", (int)(width*.63), (int)(height*0.35), (int)(width*.1), (int)(width*0.1), #7F7F7F, 255);
+    redButton = new Button("", (int)(width*.75), (int)(height*0.35), (int)(width*.1), (int)(width*0.1), #7F7F7F, 255);
+    blueButton = new Button("", (int)(width*.87), (int)(height*0.35), (int)(width*.1), (int)(width*0.1), #7F7F7F, 255);
     goButton = new Button("Go!", (int)(width*.63), (int)(height*0.8), (int)(width*.34), (int)(height*0.18), #7F7F7F, 255);
     tempYellow = new StarYellowDwarf();
     tempRed = new StarRedDwarf();
@@ -18,16 +18,20 @@ class StarBuilderState extends State
   void update()
   {
     userStar.renderStar(width*0.3, height*.5, height*.09*log(sizeSlider.current*100));
-    fill(#3F3F3F);
+    fill(#3F3F3F, 170);
     rect(width*.6, 0, width*.4, height);
     sizeSlider.displaySlider();
     yellowButton.displayButton();
-    tempYellow.renderStar(width*0.68, height*0.5, width*0.06);
+    tempYellow.renderStar(width*0.68, height*0.45, width*0.06);
     redButton.displayButton();
-    tempRed.renderStar(width*0.80, height*0.5, width*0.05);
+    tempRed.renderStar(width*0.80, height*0.45, width*0.05);
     blueButton.displayButton();
-    tempBlue.renderStar(width*0.92, height*0.5, width*0.08);
+    tempBlue.renderStar(width*0.92, height*0.45, width*0.08);
     goButton.displayButton();
+    fill(255);
+    textAlign(LEFT, CENTER);
+    textSize(48);
+    text("Star Size (compared to the Sun)", width*.63, height*0.6);
     
     if(yellowButton.ButtonPressed())
     {
