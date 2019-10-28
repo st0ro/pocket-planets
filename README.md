@@ -1,5 +1,5 @@
 # pocket-planets
-from team Winnable
+from Team Winnable
 
 
 References Used:  
